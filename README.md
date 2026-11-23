@@ -43,6 +43,7 @@ Los datos se mantienen en memoria mediante objetos y listas internas. No se util
 | `registro.py` | Ejecuta operaciones de forma controlada y registra eventos. |
 | `main.py` | Ejecuta la simulación y comprueba los resultados. |
 | `docs/diseno_clases.md` | Documenta el diseño inicial. |
+| `Fase4_SoftwareFJ_KristianRiveros.ipynb` | Contiene la ejecución y los resultados de la simulación en Google Colab. |
 
 El archivo `software_fj.log` se genera al ejecutar la simulación.
 
