@@ -217,4 +217,22 @@ Se comprobarán los resultados, el contenido del log y la continuidad del progra
 
 ## 11. Estado del desarrollo
 
-Diseño inicial propuesto. La implementación y las pruebas están pendientes.
+El diseño inicial del sistema Software FJ fue completado y posteriormente implementado en Python, aplicando los principios de programación orientada a objetos.
+
+Se completaron las siguientes actividades:
+
+- Implementación de las clases del sistema y sus relaciones de herencia.
+- Aplicación de encapsulación, polimorfismo y validaciones de datos.
+- Implementación de excepciones personalizadas y registro de eventos.
+- Ejecución de 30 operaciones: 18 exitosas y 12 errores controlados.
+- Verificación de 30 comprobaciones aprobadas y 0 fallidas.
+- Publicación del código fuente y las evidencias en GitHub.
+
+Archivos de evidencia:
+
+- Fase4_SoftwareFJ_KristianRiveros.ipynb: cuaderno con la ejecución y resultados de la simulación.
+- software_fj.log: registro de operaciones, errores controlados y resultados de las pruebas.
+
+Estado actual del proyecto:
+
+La implementación del sistema Software FJ está completada y las pruebas funcionales han sido verificadas satisfactoriamente. Queda pendiente la preparación y revisión de las evidencias para la entrega académica final.
