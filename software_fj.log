@@ -1,0 +1,378 @@
+2026-11-23T02:47:51+00:00 | INICIO | Registrar cliente válido
+2026-11-23T02:47:51+00:00 | EXITO | Registrar cliente válido
+2026-11-23T02:47:51+00:00 | FIN | Registrar cliente válido
+2026-11-23T02:47:51+00:00 | PRUEBA | Registrar cliente válido | APROBADA
+2026-11-23T02:47:51+00:00 | INICIO | Rechazar correo inválido
+2026-11-23T02:47:51+00:00 | ERROR | Rechazar correo inválido | DatosInvalidosError: El correo debe tener un formato como usuario@dominio.com.
+Traceback (most recent call last):
+  File "/content/fase4-programacion-grupo633/registro.py", line 73, in ejecutar
+    resultado = accion(*args, **kwargs)
+  File "/content/fase4-programacion-grupo633/main.py", line 73, in <lambda>
+    Cliente("C02", "Luis Prueba", "correo-invalido", "3007654321")
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/fase4-programacion-grupo633/cliente.py", line 22, in __init__
+    self.correo = correo
+    ^^^^^^^^^^^
+  File "/content/fase4-programacion-grupo633/cliente.py", line 97, in correo
+    self.__correo = self._validar_correo(valor)
+                    ~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/content/fase4-programacion-grupo633/cliente.py", line 52, in _validar_correo
+    raise DatosInvalidosError(
+        "El correo debe tener un formato como usuario@dominio.com."
+    )
+excepciones.DatosInvalidosError: El correo debe tener un formato como usuario@dominio.com.
+
+2026-11-23T02:47:51+00:00 | FIN | Rechazar correo inválido
+2026-11-23T02:47:51+00:00 | PRUEBA | Rechazar correo inválido | APROBADA
+2026-11-23T02:47:51+00:00 | INICIO | Rechazar cliente duplicado
+2026-11-23T02:47:51+00:00 | ERROR | Rechazar cliente duplicado | DatosInvalidosError: Ya existe un registro de cliente con el identificador C01.
+Traceback (most recent call last):
+  File "/content/fase4-programacion-grupo633/registro.py", line 73, in ejecutar
+    resultado = accion(*args, **kwargs)
+  File "/content/fase4-programacion-grupo633/main.py", line 82, in <lambda>
+    lambda: gestor.registrar_cliente(
+            ~~~~~~~~~~~~~~~~~~~~~~~~^
+        Cliente("C01", "Otra Persona", "otra@example.com", "3007654321")
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ),
+    ^
+  File "/content/fase4-programacion-grupo633/gestor.py", line 85, in registrar_cliente
+    self._verificar_duplicado(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.__clientes, cliente.identificador, "cliente"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/content/fase4-programacion-grupo633/gestor.py", line 54, in _verificar_duplicado
+    raise DatosInvalidosError(
+    ...<2 lines>...
+    )
+excepciones.DatosInvalidosError: Ya existe un registro de cliente con el identificador C01.
+
+2026-11-23T02:47:51+00:00 | FIN | Rechazar cliente duplicado
+2026-11-23T02:47:51+00:00 | PRUEBA | Rechazar cliente duplicado | APROBADA
+2026-11-23T02:47:51+00:00 | INICIO | Conservar correo después de una actualización inválida
+2026-11-23T02:47:51+00:00 | ERROR | Conservar correo después de una actualización inválida | DatosInvalidosError: El correo debe tener un formato como usuario@dominio.com.
+Traceback (most recent call last):
+  File "/content/fase4-programacion-grupo633/registro.py", line 73, in ejecutar
+    resultado = accion(*args, **kwargs)
+  File "/content/fase4-programacion-grupo633/main.py", line 92, in <lambda>
+    lambda: setattr(gestor.buscar_cliente("C01"), "correo", "incorrecto"),
+            ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/fase4-programacion-grupo633/cliente.py", line 97, in correo
+    self.__correo = self._validar_correo(valor)
+                    ~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/content/fase4-programacion-grupo633/cliente.py", line 52, in _validar_correo
+    raise DatosInvalidosError(
+        "El correo debe tener un formato como usuario@dominio.com."
+    )
+excepciones.DatosInvalidosError: El correo debe tener un formato como usuario@dominio.com.
+
+2026-11-23T02:47:51+00:00 | FIN | Conservar correo después de una actualización inválida
+2026-11-23T02:47:51+00:00 | PRUEBA | Conservar correo después de una actualización inválida | APROBADA
+2026-11-23T02:47:51+00:00 | INICIO | Registrar sala válida
+2026-11-23T02:47:51+00:00 | EXITO | Registrar sala válida
+2026-11-23T02:47:51+00:00 | FIN | Registrar sala válida
+2026-11-23T02:47:51+00:00 | PRUEBA | Registrar sala válida | APROBADA
+2026-11-23T02:47:51+00:00 | INICIO | Rechazar sala con exceso de asistentes
+2026-11-23T02:47:51+00:00 | ERROR | Rechazar sala con exceso de asistentes | DatosInvalidosError: Los asistentes no pueden superar la capacidad de la sala.
+Traceback (most recent call last):
+  File "/content/fase4-programacion-grupo633/registro.py", line 73, in ejecutar
+    resultado = accion(*args, **kwargs)
+  File "/content/fase4-programacion-grupo633/main.py", line 111, in <lambda>
+    ServicioSala("S02", "Sala pequeña", 30000, 4, 8)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/fase4-programacion-grupo633/servicios.py", line 47, in __init__
+    self.validar()
+    ~~~~~~~~~~~~^^
+  File "/content/fase4-programacion-grupo633/servicios.py", line 58, in validar
+    raise DatosInvalidosError(
+        "Los asistentes no pueden superar la capacidad de la sala."
+    )
+excepciones.DatosInvalidosError: Los asistentes no pueden superar la capacidad de la sala.
+
+2026-11-23T02:47:51+00:00 | FIN | Rechazar sala con exceso de asistentes
+2026-11-23T02:47:51+00:00 | PRUEBA | Rechazar sala con exceso de asistentes | APROBADA
+2026-11-23T02:47:51+00:00 | INICIO | Registrar equipos válidos
+2026-11-23T02:47:51+00:00 | EXITO | Registrar equipos válidos
+2026-11-23T02:47:51+00:00 | FIN | Registrar equipos válidos
+2026-11-23T02:47:51+00:00 | PRUEBA | Registrar equipos válidos | APROBADA
+2026-11-23T02:47:51+00:00 | INICIO | Rechazar equipos insuficientes
+2026-11-23T02:47:51+00:00 | ERROR | Rechazar equipos insuficientes | DatosInvalidosError: La cantidad solicitada supera la cantidad disponible.
+Traceback (most recent call last):
+  File "/content/fase4-programacion-grupo633/registro.py", line 73, in ejecutar
+    resultado = accion(*args, **kwargs)
+  File "/content/fase4-programacion-grupo633/main.py", line 128, in <lambda>
+    ServicioEquipo("E02", "Proyectores", 15000, "Proyector", 1, 3)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/fase4-programacion-grupo633/servicios.py", line 107, in __init__
+    self.validar()
+    ~~~~~~~~~~~~^^
+  File "/content/fase4-programacion-grupo633/servicios.py", line 123, in validar
+    raise DatosInvalidosError(
+        "La cantidad solicitada supera la cantidad disponible."
+    )
+excepciones.DatosInvalidosError: La cantidad solicitada supera la cantidad disponible.
+
+2026-11-23T02:47:51+00:00 | FIN | Rechazar equipos insuficientes
+2026-11-23T02:47:51+00:00 | PRUEBA | Rechazar equipos insuficientes | APROBADA
+2026-11-23T02:47:51+00:00 | INICIO | Registrar asesoría válida
+2026-11-23T02:47:51+00:00 | EXITO | Registrar asesoría válida
+2026-11-23T02:47:51+00:00 | FIN | Registrar asesoría válida
+2026-11-23T02:47:51+00:00 | PRUEBA | Registrar asesoría válida | APROBADA
+2026-11-23T02:47:51+00:00 | INICIO | Rechazar tarifa negativa
+2026-11-23T02:47:51+00:00 | ERROR | Rechazar tarifa negativa | DatosInvalidosError: La tarifa base debe ser mayor que 0.
+Traceback (most recent call last):
+  File "/content/fase4-programacion-grupo633/registro.py", line 73, in ejecutar
+    resultado = accion(*args, **kwargs)
+  File "/content/fase4-programacion-grupo633/main.py", line 147, in <lambda>
+    ServicioAsesoria(
+    ~~~~~~~~~~~~~~~~^
+        "A02", "Asesoría inválida", -100, "Redes", "Pedro Prueba"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/content/fase4-programacion-grupo633/servicios.py", line 171, in __init__
+    super().__init__(identificador, nombre, tarifa_base)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/fase4-programacion-grupo633/servicio.py", line 68, in __init__
+    self.__tarifa_base = validar_numero(
+                         ~~~~~~~~~~~~~~^
+        tarifa_base, "La tarifa base", estricto=True
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/content/fase4-programacion-grupo633/servicio.py", line 37, in validar_numero
+    raise DatosInvalidosError(
+        f"{nombre} debe ser {condicion} {minimo}."
+    )
+excepciones.DatosInvalidosError: La tarifa base debe ser mayor que 0.
+
+2026-11-23T02:47:51+00:00 | FIN | Rechazar tarifa negativa
+2026-11-23T02:47:51+00:00 | PRUEBA | Rechazar tarifa negativa | APROBADA
+2026-11-23T02:47:51+00:00 | INICIO | Rechazar reserva de cliente inexistente
+2026-11-23T02:47:51+00:00 | ERROR | Rechazar reserva de cliente inexistente | DatosInvalidosError: No existe un registro de cliente con el identificador C99.
+Traceback (most recent call last):
+  File "/content/fase4-programacion-grupo633/registro.py", line 73, in ejecutar
+    resultado = accion(*args, **kwargs)
+  File "/content/fase4-programacion-grupo633/main.py", line 157, in <lambda>
+    lambda: gestor.crear_reserva("R00", "C99", "S01", 2),
+            ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/fase4-programacion-grupo633/gestor.py", line 133, in crear_reserva
+    cliente = self.buscar_cliente(id_cliente)
+  File "/content/fase4-programacion-grupo633/gestor.py", line 110, in buscar_cliente
+    return self._buscar(self.__clientes, identificador, "cliente")
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/fase4-programacion-grupo633/gestor.py", line 70, in _buscar
+    raise DatosInvalidosError(
+    ...<2 lines>...
+    )
+excepciones.DatosInvalidosError: No existe un registro de cliente con el identificador C99.
+
+2026-11-23T02:47:51+00:00 | FIN | Rechazar reserva de cliente inexistente
+2026-11-23T02:47:51+00:00 | PRUEBA | Rechazar reserva de cliente inexistente | APROBADA
+2026-11-23T02:47:51+00:00 | INICIO | Rechazar duración no numérica
+2026-11-23T02:47:51+00:00 | ERROR | Rechazar duración no numérica | DatosInvalidosError: La duración en horas debe ser un número válido.
+Traceback (most recent call last):
+  File "/content/fase4-programacion-grupo633/servicio.py", line 23, in validar_numero
+    numero = float(valor)
+ValueError: could not convert string to float: 'dos'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/content/fase4-programacion-grupo633/registro.py", line 73, in ejecutar
+    resultado = accion(*args, **kwargs)
+  File "/content/fase4-programacion-grupo633/main.py", line 165, in <lambda>
+    lambda: gestor.crear_reserva("R00", "C01", "S01", "dos"),
+            ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/fase4-programacion-grupo633/gestor.py", line 137, in crear_reserva
+    reserva = Reserva(
+        identificador, cliente, servicio, duracion
+    )
+  File "/content/fase4-programacion-grupo633/reserva.py", line 41, in __init__
+    self.__duracion = validar_numero(
+                      ~~~~~~~~~~~~~~^
+        duracion, "La duración en horas", estricto=True
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/content/fase4-programacion-grupo633/servicio.py", line 26, in validar_numero
+    raise DatosInvalidosError(
+        f"{nombre} debe ser un número válido."
+    ) from error
+excepciones.DatosInvalidosError: La duración en horas debe ser un número válido.
+
+2026-11-23T02:47:51+00:00 | FIN | Rechazar duración no numérica
+2026-11-23T02:47:51+00:00 | PRUEBA | Rechazar duración no numérica | APROBADA
+2026-11-23T02:47:51+00:00 | INICIO | Crear reserva de sala
+2026-11-23T02:47:51+00:00 | EXITO | Crear reserva de sala
+2026-11-23T02:47:51+00:00 | FIN | Crear reserva de sala
+2026-11-23T02:47:51+00:00 | PRUEBA | Crear reserva de sala | APROBADA
+2026-11-23T02:47:51+00:00 | INICIO | Confirmar reserva de sala
+2026-11-23T02:47:51+00:00 | EXITO | Confirmar reserva de sala
+2026-11-23T02:47:51+00:00 | FIN | Confirmar reserva de sala
+2026-11-23T02:47:51+00:00 | PRUEBA | Confirmar reserva de sala | APROBADA
+2026-11-23T02:47:51+00:00 | INICIO | Crear segunda solicitud de sala
+2026-11-23T02:47:51+00:00 | EXITO | Crear segunda solicitud de sala
+2026-11-23T02:47:51+00:00 | FIN | Crear segunda solicitud de sala
+2026-11-23T02:47:51+00:00 | PRUEBA | Crear segunda solicitud de sala | APROBADA
+2026-11-23T02:47:51+00:00 | INICIO | Rechazar confirmación de servicio ocupado
+2026-11-23T02:47:51+00:00 | ERROR | Rechazar confirmación de servicio ocupado | ServicioNoDisponibleError: El servicio S01 no está disponible.
+Traceback (most recent call last):
+  File "/content/fase4-programacion-grupo633/registro.py", line 73, in ejecutar
+    resultado = accion(*args, **kwargs)
+  File "/content/fase4-programacion-grupo633/main.py", line 195, in <lambda>
+    lambda: gestor.confirmar_reserva("R02"),
+            ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/content/fase4-programacion-grupo633/gestor.py", line 149, in confirmar_reserva
+    return reserva.confirmar()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/content/fase4-programacion-grupo633/reserva.py", line 99, in confirmar
+    raise ServicioNoDisponibleError(
+        f"El servicio {self.servicio.identificador} no está disponible."
+    )
+excepciones.ServicioNoDisponibleError: El servicio S01 no está disponible.
+
+2026-11-23T02:47:51+00:00 | FIN | Rechazar confirmación de servicio ocupado
+2026-11-23T02:47:51+00:00 | PRUEBA | Rechazar confirmación de servicio ocupado | APROBADA
+2026-11-23T02:47:51+00:00 | INICIO | Cancelar solicitud pendiente sin liberar servicio ocupado
+2026-11-23T02:47:51+00:00 | EXITO | Cancelar solicitud pendiente sin liberar servicio ocupado
+2026-11-23T02:47:51+00:00 | FIN | Cancelar solicitud pendiente sin liberar servicio ocupado
+2026-11-23T02:47:51+00:00 | PRUEBA | Cancelar solicitud pendiente sin liberar servicio ocupado | APROBADA
+2026-11-23T02:47:51+00:00 | INICIO | Rechazar descuento inválido sin alterar la reserva
+2026-11-23T02:47:51+00:00 | ERROR | Rechazar descuento inválido sin alterar la reserva | CalculoCostoError: No se pudo calcular el costo: El descuento debe ser menor o igual que 1.
+Traceback (most recent call last):
+  File "/content/fase4-programacion-grupo633/servicio.py", line 126, in _calcular_total
+    rebaja = validar_numero(descuento, "El descuento", maximo=1)
+  File "/content/fase4-programacion-grupo633/servicio.py", line 43, in validar_numero
+    raise DatosInvalidosError(
+        f"{nombre} debe ser menor o igual que {maximo}."
+    )
+excepciones.DatosInvalidosError: El descuento debe ser menor o igual que 1.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/content/fase4-programacion-grupo633/registro.py", line 73, in ejecutar
+    resultado = accion(*args, **kwargs)
+  File "/content/fase4-programacion-grupo633/main.py", line 213, in <lambda>
+    lambda: gestor.procesar_reserva("R01", descuento=1.5),
+            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/fase4-programacion-grupo633/gestor.py", line 162, in procesar_reserva
+    return reserva.procesar(
+           ~~~~~~~~~~~~~~~~^
+        impuesto=impuesto,
+        ^^^^^^^^^^^^^^^^^^
+        descuento=descuento,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/content/fase4-programacion-grupo633/reserva.py", line 141, in procesar
+    total_calculado = self.servicio.calcular_costo(
+        self.duracion,
+        impuesto=impuesto,
+        descuento=descuento,
+    )
+  File "/content/fase4-programacion-grupo633/servicios.py", line 79, in calcular_costo
+    return self._calcular_total(subtotal, impuesto, descuento)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/fase4-programacion-grupo633/servicio.py", line 139, in _calcular_total
+    raise CalculoCostoError(
+        f"No se pudo calcular el costo: {error}"
+    ) from error
+excepciones.CalculoCostoError: No se pudo calcular el costo: El descuento debe ser menor o igual que 1.
+
+2026-11-23T02:47:51+00:00 | FIN | Rechazar descuento inválido sin alterar la reserva
+2026-11-23T02:47:51+00:00 | PRUEBA | Rechazar descuento inválido sin alterar la reserva | APROBADA
+2026-11-23T02:47:51+00:00 | INICIO | Procesar sala con descuento e impuesto
+2026-11-23T02:47:51+00:00 | EXITO | Procesar sala con descuento e impuesto
+2026-11-23T02:47:51+00:00 | FIN | Procesar sala con descuento e impuesto
+2026-11-23T02:47:51+00:00 | PRUEBA | Procesar sala con descuento e impuesto | APROBADA
+2026-11-23T02:47:51+00:00 | INICIO | Rechazar procesamiento repetido
+2026-11-23T02:47:51+00:00 | ERROR | Rechazar procesamiento repetido | EstadoReservaError: No se puede procesar una reserva procesada.
+Traceback (most recent call last):
+  File "/content/fase4-programacion-grupo633/registro.py", line 73, in ejecutar
+    resultado = accion(*args, **kwargs)
+  File "/content/fase4-programacion-grupo633/main.py", line 238, in <lambda>
+    lambda: gestor.procesar_reserva("R01"),
+            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/content/fase4-programacion-grupo633/gestor.py", line 162, in procesar_reserva
+    return reserva.procesar(
+           ~~~~~~~~~~~~~~~~^
+        impuesto=impuesto,
+        ^^^^^^^^^^^^^^^^^^
+        descuento=descuento,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/content/fase4-programacion-grupo633/reserva.py", line 132, in procesar
+    raise EstadoReservaError(
+        f"No se puede procesar una reserva {self.estado}."
+    )
+excepciones.EstadoReservaError: No se puede procesar una reserva procesada.
+
+2026-11-23T02:47:51+00:00 | FIN | Rechazar procesamiento repetido
+2026-11-23T02:47:51+00:00 | PRUEBA | Rechazar procesamiento repetido | APROBADA
+2026-11-23T02:47:51+00:00 | INICIO | Crear reserva de equipos
+2026-11-23T02:47:51+00:00 | EXITO | Crear reserva de equipos
+2026-11-23T02:47:51+00:00 | FIN | Crear reserva de equipos
+2026-11-23T02:47:51+00:00 | PRUEBA | Crear reserva de equipos | APROBADA
+2026-11-23T02:47:51+00:00 | INICIO | Confirmar reserva de equipos
+2026-11-23T02:47:51+00:00 | EXITO | Confirmar reserva de equipos
+2026-11-23T02:47:51+00:00 | FIN | Confirmar reserva de equipos
+2026-11-23T02:47:51+00:00 | PRUEBA | Confirmar reserva de equipos | APROBADA
+2026-11-23T02:47:51+00:00 | INICIO | Procesar equipos sin ajustes
+2026-11-23T02:47:51+00:00 | EXITO | Procesar equipos sin ajustes
+2026-11-23T02:47:51+00:00 | FIN | Procesar equipos sin ajustes
+2026-11-23T02:47:51+00:00 | PRUEBA | Procesar equipos sin ajustes | APROBADA
+2026-11-23T02:47:51+00:00 | INICIO | Crear reserva de asesoría
+2026-11-23T02:47:51+00:00 | EXITO | Crear reserva de asesoría
+2026-11-23T02:47:51+00:00 | FIN | Crear reserva de asesoría
+2026-11-23T02:47:51+00:00 | PRUEBA | Crear reserva de asesoría | APROBADA
+2026-11-23T02:47:51+00:00 | INICIO | Confirmar reserva de asesoría
+2026-11-23T02:47:51+00:00 | EXITO | Confirmar reserva de asesoría
+2026-11-23T02:47:51+00:00 | FIN | Confirmar reserva de asesoría
+2026-11-23T02:47:51+00:00 | PRUEBA | Confirmar reserva de asesoría | APROBADA
+2026-11-23T02:47:51+00:00 | INICIO | Cancelar asesoría confirmada
+2026-11-23T02:47:51+00:00 | EXITO | Cancelar asesoría confirmada
+2026-11-23T02:47:51+00:00 | FIN | Cancelar asesoría confirmada
+2026-11-23T02:47:51+00:00 | PRUEBA | Cancelar asesoría confirmada | APROBADA
+2026-11-23T02:47:51+00:00 | INICIO | Rechazar procesamiento de reserva cancelada
+2026-11-23T02:47:51+00:00 | ERROR | Rechazar procesamiento de reserva cancelada | EstadoReservaError: No se puede procesar una reserva cancelada.
+Traceback (most recent call last):
+  File "/content/fase4-programacion-grupo633/registro.py", line 73, in ejecutar
+    resultado = accion(*args, **kwargs)
+  File "/content/fase4-programacion-grupo633/main.py", line 286, in <lambda>
+    lambda: gestor.procesar_reserva("R04"),
+            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/content/fase4-programacion-grupo633/gestor.py", line 162, in procesar_reserva
+    return reserva.procesar(
+           ~~~~~~~~~~~~~~~~^
+        impuesto=impuesto,
+        ^^^^^^^^^^^^^^^^^^
+        descuento=descuento,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/content/fase4-programacion-grupo633/reserva.py", line 132, in procesar
+    raise EstadoReservaError(
+        f"No se puede procesar una reserva {self.estado}."
+    )
+excepciones.EstadoReservaError: No se puede procesar una reserva cancelada.
+
+2026-11-23T02:47:51+00:00 | FIN | Rechazar procesamiento de reserva cancelada
+2026-11-23T02:47:51+00:00 | PRUEBA | Rechazar procesamiento de reserva cancelada | APROBADA
+2026-11-23T02:47:51+00:00 | INICIO | Crear nueva reserva después de un error
+2026-11-23T02:47:51+00:00 | EXITO | Crear nueva reserva después de un error
+2026-11-23T02:47:51+00:00 | FIN | Crear nueva reserva después de un error
+2026-11-23T02:47:51+00:00 | PRUEBA | Crear nueva reserva después de un error | APROBADA
+2026-11-23T02:47:51+00:00 | INICIO | Confirmar nueva asesoría
+2026-11-23T02:47:51+00:00 | EXITO | Confirmar nueva asesoría
+2026-11-23T02:47:51+00:00 | FIN | Confirmar nueva asesoría
+2026-11-23T02:47:51+00:00 | PRUEBA | Confirmar nueva asesoría | APROBADA
+2026-11-23T02:47:51+00:00 | INICIO | Procesar asesoría con impuesto
+2026-11-23T02:47:51+00:00 | EXITO | Procesar asesoría con impuesto
+2026-11-23T02:47:51+00:00 | FIN | Procesar asesoría con impuesto
+2026-11-23T02:47:51+00:00 | PRUEBA | Procesar asesoría con impuesto | APROBADA
+2026-11-23T02:47:51+00:00 | RESUMEN | Pruebas: 30 | Aprobadas: 30 | Fallidas: 0
